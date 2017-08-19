@@ -16,16 +16,12 @@ pipeline {
         }            
      stage('Run test') {
             steps {
-                withEnv(["PATH+MAVEN=${tool 'maven'}/bin"]) {
-                sh "mvn test"
-                }
+               sh "mvn test"
             }
         }
     stage('Build war') {
             steps {
-                withEnv(["PATH+MAVEN=${tool 'maven4'}/bin"]) {
                 sh "mvn package"
-                }
             }
         }
     }
