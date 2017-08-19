@@ -10,7 +10,7 @@ pipeline {
         }
         stage('Git Checkout') {
             steps {
-                git branch: 'anup', credentialsId: 'd3fb9088-8c56-4d86-a050-464cc85b990f', url: 'git@github.com:anupyadav1993/KSS-Jenkins.git'
+                checkout([$class: 'GitSCM', branches: [[name: '*/anup']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'c8541ba1-0143-4fcd-b447-89034f5147ef', url: 'git@github.com:anupyadav1993/KSS-Jenkins.git']]])
             }
         }
     }
