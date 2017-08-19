@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    tools {
+        maven 'apache-maven-3.0.1' 
+    }
     stages {
         stage('User Confirmation') {
             steps {
@@ -13,7 +16,7 @@ pipeline {
         }            
      stage('Run test') {
             steps {
-                withEnv(["PATH+MAVEN=${tool 'maven4'}/bin"]) {
+                withEnv(["PATH+MAVEN=${tool 'maven'}/bin"]) {
                 sh "mvn test"
                 }
             }
